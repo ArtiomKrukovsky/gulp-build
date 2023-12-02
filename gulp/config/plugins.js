@@ -13,5 +13,3 @@ export const plugins = {
     newer: newer,
     if: ifPlugin,
 }
-
-// TODO: install gulp-if

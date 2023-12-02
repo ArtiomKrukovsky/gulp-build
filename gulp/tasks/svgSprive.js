@@ -1,7 +1,7 @@
 import svgSprite from "gulp-svg-sprite";  
 
-export const svgSprite = () => {
-    return app.gulp.src(app.path.src.svgSprite)
+export const svgSprive = () => {
+    return app.gulp.src(`${app.path.src.svgicons}`, {})
         .pipe(app.plugins.plumber(
             app.plugins.notify.onError({
                 title: "HTML",
@@ -17,7 +17,5 @@ export const svgSprite = () => {
                 }
             }
         }))
-        .pipe(app.gulp.dest(app.path.build.images))
+        .pipe(app.gulp.dest(`${app.path.build.images}`))
 }
-
-// TODO: install gulp-svg-sprite

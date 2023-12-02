@@ -42,24 +42,25 @@ export const ttfToWoff = () => {
         .pipe(app.gulp.dest(`${app.path.build.fonts}`))
 }
 
-export const fontsStyle = () => {
-    let file_content = fs.readFileSync(source_folder + '/scss/fonts.scss');
-    if (file_content == '') {
-        fs.writeFile(source_folder + '/scss/fonts.scss', '', cb);
-        return fs.readdir(path.build.fonts, function (err, items) {
+export function fontsStyle(done) {
+    let fontsFile = `${app.path.srcFolder}/scss/fonts.scss`;
+    if (!fs.existsSync(fontsFile)) {
+        fs.writeFile(fontsFile, '', cb);
+        return fs.readdir(app.path.build.fonts, function (err, items) {
             if (items) {
                 let c_fontname;
                 for (var i = 0; i < items.length; i++) {
                     let fontname = items[i].split('.');
                     fontname = fontname[0];
                     if (c_fontname != fontname) {
-                        fs.appendFile(source_folder + '/scss/fonts.scss', '@include font("' + fontname + '", "' + fontname + '", "400", "normal");\r\n', cb);
+                        fs.appendFile(fontsFile, '@include font("' + fontname + '", "' + fontname + '", "400", "normal");\r\n', cb);
                     }
                     c_fontname = fontname;
                 }
             }
         })
     }
+    done();
 }
 
-// TODO: install fonter and ttf2woff2
+function cb() { }
