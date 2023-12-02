@@ -11,6 +11,8 @@ export const path = {
         js: `${buildFolder}/js/`,
         css: `${buildFolder}/css/`,
         html: `${buildFolder}/`,
+        images: `${buildFolder}/img/`,
+        fonts: `${buildFolder}/fonts/`,
         files: `${buildFolder}/files/`, 
     },
     // папки с источником
@@ -18,13 +20,17 @@ export const path = {
         js: `${srcFolder}/js/app.js`,
         scss: `${srcFolder}/scss/style.scss`,
         html: `${srcFolder}/*.html`,
+        svg: `${srcFolder}/img/**/*.svg`,  
+        images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp}`,
         files: `${srcFolder}/files/**/*.*`, 
+        svgicons: `${srcFolder}/svgicons/*.svg`, 
     },
     // пути в папкам, которые будут являться триггерами для gulp
     watch: {
         js: `${srcFolder}/**/*.js`,
         scss: `${srcFolder}/scss/*.scss`,
         html: `${srcFolder}/**/*.html`,
+        images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp,svg,ico}`,
         files: `${srcFolder}/files/**/*.*`,
     },
     clean: buildFolder,
