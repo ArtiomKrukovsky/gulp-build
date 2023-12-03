@@ -8,7 +8,7 @@ export const ftp = () => {
     return app.gulp.src(`${app.path.src.buildFolder}/**/*.*`, {})
         .pipe(app.plugins.plumber(
             app.plugins.notify.onError({
-                title: "HTML",
+                title: "FTP",
                 message: "Error: <%= error.message %>"
             })
         ))
